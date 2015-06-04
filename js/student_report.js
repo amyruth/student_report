@@ -18,17 +18,18 @@ function getStudent(student){
 }
 
 while(true){
-    search = prompt("Enter a student name or type quit or click cancel to end search:").toLowerCase();
+    search = prompt("Enter a student name or type quit or click cancel to end search:");
        
-    if(search === 'quit' || search === null){
+    if(search === null || search.toLowerCase() === 'quit'){
         break;
-    }
-    for(var j = 0; j < students.length; j +=1){
+    }else{
+        for(var j = 0; j < students.length; j +=1){
+            var student = students[j];
             if(search === (students[j].name).toLowerCase()){
-                var student = students[j];
                 print(getStudent(student));
             }
         }
+         
+     } 
 }
-
 
