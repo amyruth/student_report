@@ -25,7 +25,7 @@ while(true){
     }else{
         for(var j = 0; j < students.length; j +=1){
             var student = students[j];
-            if(search === (students[j].name).toLowerCase()){
+            if(search.toLowerCase() === (students[j].name).toLowerCase()){
                 print(getStudent(student));
             }
         }
