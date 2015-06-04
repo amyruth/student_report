@@ -1,40 +1,34 @@
-// prints to output div in html file.
+/*work on "no name found" message
+work on pulling up duplicate names*/
+
+var search;
 
 function print(message) {
   var outputDiv = document.getElementById('output');
   outputDiv.innerHTML = message;
 }
 
-/*gave variables related to student info function scope*/
-
-function getStudentInfo(){
-    for(var j = 0; j < students.length; j +=1){
-        if(search.toLowerCase() === (students[j].name).toLowerCase()){
-            var student = students[j];
-            var studentInfo = '<h2>Student: ' + student.name + '</h2>';
-            studentInfo += '<p>Track: ' + student.track + '</p>';
-            studentInfo += '<p>Achievements: ' + student.achievements +'</p>';
-            studentInfo += '<p>Points: ' + student.points + '</p>';
-            print(studentInfo);
-        }
-    }
+function getStudent(student){
+    
+        var studentInfo = '<h2>Student: ' + student.name + '</h2>';
+        studentInfo += '<p>Track: ' + student.track + '</p>';
+        studentInfo += '<p>Achievements: ' + student.achievements +'</p>';
+        studentInfo += '<p>Points: ' + student.points + '</p>';
+        return studentInfo;
 }
-
-
-/*to keep the prompts going until quit is typed, use while loop w/search at the top
-prompt pops up after student info is written to screen*/
 
 while(true){
-    var search = prompt("Enter a student name:");
-    if(search.toLowerCase() === 'quit' || search === null){
+    search = prompt("Enter a student name or type quit or click cancel to end search:").toLowerCase();
+       
+    if(search === 'quit' || search === null){
         break;
     }
-    getStudentInfo();
+    for(var j = 0; j < students.length; j +=1){
+            if(search === (students[j].name).toLowerCase()){
+                var student = students[j];
+                print(getStudent(student));
+            }
+        }
 }
-
-
-
-    
-    
 
 
